@@ -16,7 +16,14 @@ Here is an example =use-package= declaration:
   :bind ("C-c S" . #'codespaces-connect))
 #+end_src
 
-You will need to have the GitHub [[https://cli.github.com][command line tools]] (=gh=) installed. If you use =use-package-ensure-system-package=, Emacs can install them for you automatically:
+You will also need to:
+
+1. Have GitHub [[https://cli.github.com][command line tools]] (=gh=) installed.
+2. Authorize =gh= to access your codespaces.
+  * This can be done by running `gh auth refresh -h github.com -s codespace`.
+  * A good way to check this is working is to run `gh codespace list`.
+
+If you use =use-package-ensure-system-package=, Emacs can install them for you automatically:
 
 #+begin_src emacs-lisp
 (use-package use-package-ensure-system-package :ensure t)
